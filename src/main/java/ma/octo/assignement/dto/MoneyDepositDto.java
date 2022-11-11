@@ -9,12 +9,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 @Builder
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class TransferDto {
-  private BigDecimal montantTransfer;
-  private Date dateExecution;
-  private String nrCompteEmetteur;
-  private String nrCompteBeneficiaire;
-  private String motifTransfer;
+@NoArgsConstructor
+public class MoneyDepositDto {
+    private BigDecimal montant;
+
+    private Date dateExecution;
+
+    private String nomPrenomEmetteur;
+
+    private String nrCompteBeneficiaire;
+
+    private String motifDeposit;
 }

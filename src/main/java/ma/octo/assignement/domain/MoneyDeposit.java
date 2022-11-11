@@ -1,9 +1,17 @@
 package ma.octo.assignement.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "DEP")
 public class MoneyDeposit {
@@ -13,14 +21,14 @@ public class MoneyDeposit {
   private Long id;
 
   @Column(precision = 16, scale = 2, nullable = false)
-  private BigDecimal Montant;
+  private BigDecimal montant;         //replacer nomenclature Montant par montant
 
   @Column
   @Temporal(TemporalType.TIMESTAMP)
   private Date dateExecution;
 
   @Column
-  private String nom_prenom_emetteur;
+  private String nomPrenomEmetteur;   //replacer nomenclature nom_prenom_emetteur par NomPrenomEmetteut
 
   @ManyToOne
   private Compte compteBeneficiaire;
@@ -28,51 +36,4 @@ public class MoneyDeposit {
   @Column(length = 200)
   private String motifDeposit;
 
-  public BigDecimal getMontant() {
-    return Montant;
-  }
-
-  public void setMontant(BigDecimal montant) {
-    this.Montant = montant;
-  }
-
-  public Date getDateExecution() {
-    return dateExecution;
-  }
-
-  public void setDateExecution(Date dateExecution) {
-    this.dateExecution = dateExecution;
-  }
-
-  public Compte getCompteBeneficiaire() {
-    return compteBeneficiaire;
-  }
-
-  public void setCompteBeneficiaire(Compte compteBeneficiaire) {
-    this.compteBeneficiaire = compteBeneficiaire;
-  }
-
-  public String getMotifDeposit() {
-    return motifDeposit;
-  }
-
-  public void setMotifDeposit(String motifDeposit) {
-    this.motifDeposit = motifDeposit;
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getNom_prenom_emetteur() {
-    return nom_prenom_emetteur;
-  }
-
-  public void setNom_prenom_emetteur(String nom_prenom_emetteur) {
-    this.nom_prenom_emetteur = nom_prenom_emetteur;
-  }
 }
